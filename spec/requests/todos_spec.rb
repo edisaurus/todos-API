@@ -39,7 +39,7 @@ RSpec.describe 'Todos API', type: :request do
       end
 
       it 'returns a not found message' do
-        expect(reponse.body).to match(/Couldn't find Todo/)
+        expect(response.body).to match(/Couldn't find Todo/)
       end
     end
   end
@@ -63,11 +63,11 @@ RSpec.describe 'Todos API', type: :request do
       before { post '/todos', params: { title: 'Foobar' } }
 
       it 'returns status code 422' do
-        expect(reponse).to have_http_status(422)
+        expect(response).to have_http_status(422)
       end
 
       it 'returns a validation failure message' do
-        expect(reponse.body)
+        expect(response.body)
           .to match(/Validation failed: Created by can't be blank/)
       end
     end
@@ -84,7 +84,7 @@ RSpec.describe 'Todos API', type: :request do
       end
 
       it 'return status code 204' do
-        expect(reponse).to have_http_status(204)
+        expect(response).to have_http_status(204)
       end
     end
   end
@@ -93,7 +93,7 @@ RSpec.describe 'Todos API', type: :request do
     before { delete "/todos/#{todo_id}" }
 
     it 'return status code 204' do
-      expect(reponse).to have_http_status(204)
+      expect(response).to have_http_status(204)
     end
   end
 end
