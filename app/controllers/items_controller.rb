@@ -25,6 +25,8 @@ class ItemsController < ApplicationController
     head :no_content
   end
 
+  private
+
   def item_params
     params.permit(:name, :done)
   end
